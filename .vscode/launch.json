@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Program - Debug",
+      "program": "${workspaceFolder}/bin/www",
+      "envFile": "${workspaceFolder}/.env",
+    },
+    {
+      "name": "Mocha (Test single file)",
+      "type": "node",
+      "request": "launch",
+      "runtimeArgs": [
+        "${workspaceRoot}/node_modules/.bin/mocha",
+        "--inspect-brk",
+        "${relativeFile}",
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "NODE_ENV": "local",
+        "NODE_ENV_CONTEXT": "default",
+        "CORE_END_POINT": "https://api-sandbox.pismolabs.io",
+        "CORE_REFRESH_EVERY": "*/9 * * * *",
+        "CORE_SERVER_KEY": "5262f112e5eb475e7b9c1384bf05800651413510",
+        "CORE_SERVER_SECRET": "yD5f4]76t>W:[Ttw>)o-&1Xq&vs)*;h01_KO)ZG+0q)b0YE!",
+        "NODE_LOG_FILE_PATH": "./logs/",
+        "NODE_CONTEXT_COUNTRY": "cl",
+        "BLACKLIST_MASK": "password"
+      }
+    }
+  ]
+}

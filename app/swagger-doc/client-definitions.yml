@@ -1,0 +1,52 @@
+parameters:
+  newClient:
+    type: "object"
+    properties:
+      id:
+        description: "The ID of the person"
+        type: "string"
+      name:
+        description: "The name of the person"
+        type: "string"
+      mail:
+        description: "The mail of the person"
+        type: "string"
+  deleteOk:
+    type: "object"
+    properties:
+      code:
+        type: "string"
+  response:
+    type: "object"
+    properties:
+      code:
+        type: "string"
+      message:
+        $ref: "#/definitions/Client"
+
+  error400:
+    type: "object"
+    properties:
+      data:
+        description: "Code of errors"
+        enum:
+        - ERROR_CHANNEL_NOT_VALID
+        - ERROR_COMMERCE_NOT_VALID
+        - ERROR_COUNTRY_NOT_VALID
+        - CLIENT_ERROR_BODY
+        type: "string"
+      message:
+        description: "Description of error"
+        type: "string"
+
+  error404:
+    type: "object"
+    properties:
+      data:
+        description: "Code of errors"
+        enum:
+        - CLIENT_NOT_FOUND
+        type: "string"
+      message:
+        description: "Description of error"
+        type: "string"

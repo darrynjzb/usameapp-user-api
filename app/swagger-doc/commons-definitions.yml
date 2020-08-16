@@ -1,0 +1,12 @@
+parameters:
+  error:
+    type: "object"
+    properties:
+      data:
+        description: "Code of errors"
+        enum:
+        - ERROR_500
+        type: "string"
+      message:
+        description: "Description of error"
+        type: "string"

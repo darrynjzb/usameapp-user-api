@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "a12167ac-60a1-41f7-a8ab-56c410c0cf12",
+		"name": "fif-payments-common-base",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create a client",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-flow-channel",
+						"value": "web",
+						"type": "text"
+					},
+					{
+						"key": "x-flow-country",
+						"value": "cl",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-flow-commerce",
+						"value": "banco",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"14216541\",\n\t\"name\":\"Andres\",\n\t\"mail\":\"aaa@qqq.com\"\n}"
+				},
+				"url": {
+					"raw": "{{host-local}}/v1/client/",
+					"host": [
+						"{{host-local}}"
+					],
+					"path": [
+						"api",
+						"onboarding",
+						"v1",
+						"client",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get a client",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-flow-channel",
+						"value": "web",
+						"type": "text"
+					},
+					{
+						"key": "x-flow-country",
+						"value": "cl",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-flow-commerce",
+						"value": "banco",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"14216541\",\n\t\"name\":\"Andres\",\n\t\"mail\":\"aaa@qqq.com\"\n}"
+				},
+				"url": {
+					"raw": "{{host-local}}/v1/client/14216541",
+					"host": [
+						"{{host-local}}"
+					],
+					"path": [
+						"api",
+						"onboarding",
+						"v1",
+						"client",
+						"14216541"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete a client",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-flow-channel",
+						"value": "web",
+						"type": "text"
+					},
+					{
+						"key": "x-flow-country",
+						"value": "cl",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-flow-commerce",
+						"value": "banco",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"14216541\",\n\t\"name\":\"Andres\",\n\t\"mail\":\"aaa@qqq.com\"\n}"
+				},
+				"url": {
+					"raw": "{{host-local}}/v1/client/14216541",
+					"host": [
+						"{{host-local}}"
+					],
+					"path": [
+						"api",
+						"onboarding",
+						"v1",
+						"client",
+						"14216541"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "health",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-flow-channel",
+						"type": "text",
+						"value": "web"
+					},
+					{
+						"key": "x-flow-country",
+						"type": "text",
+						"value": "cl"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-flow-commerce",
+						"type": "text",
+						"value": "banco"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\":\"14216541\",\n\t\"name\":\"Andres\",\n\t\"mail\":\"aaa@qqq.com\"\n}"
+				},
+				"url": {
+					"raw": "{{host-local}}/health/",
+					"host": [
+						"{{host-local}}"
+					],
+					"path": [
+						"health",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e16dc058-a8c9-4c6b-aae6-08f65936c0d8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "34ba47cc-2a37-47f8-9b94-28c9db2c88a9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "5f0eb276-aa3c-4592-acd5-df877117a373",
+			"key": "host-local",
+			"value": "http://localhost:3053",
+			"type": "string"
+		},
+		{
+			"id": "9f40b668-b72c-403d-b837-0d28019e035d",
+			"key": "host-test",
+			"value": "http://localhost:3053",
+			"type": "string"
+		},
+		{
+			"id": "563ffaf4-07a1-4da4-8b11-7ae9caee3a17",
+			"key": "host-qa",
+			"value": "http://localhost:3053",
+			"type": "string"
+		},
+		{
+			"id": "3b6f5608-fff6-4eb4-9810-014d73699438",
+			"key": "hots-prod",
+			"value": "http://localhost:3053",
+			"type": "string"
+		},
+		{
+			"id": "de3a9ff8-b53c-434c-b6bf-574dd8928f4f",
+			"key": "apiKet-local",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"id": "5c0e71ba-f906-4791-9276-d95f19e2a354",
+			"key": "apiKet-test",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"id": "56af90c3-6aa7-4470-b952-0bcf5bd2674b",
+			"key": "apiKet-qa",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"id": "b4bfa6d6-41d2-419f-860c-daf383f412be",
+			"key": "apiKet-prod",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
