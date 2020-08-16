@@ -3,7 +3,8 @@ const app = require('../app');
 const debug = require('debug')('express:server');
 const http = require('http');
 const displayRoutes = require('express-routemap');
-const context = require('../app/config/index').context;
+const { context, config } = require('../app/config/index');
+const Database = require('../app/db/sequelize');
 
 /**
  * Normalize a port into a number, string, or false.
@@ -82,6 +83,24 @@ const onListening = () => {
 };
 
 server.on('listening', onListening);
+
+/**
+ * Database connection
+ */
+
+const databaseConnection = async () => {
+  try {
+    const database = new Database(config.mariadb);
+    await database.initConnection();
+    console.log(`\x1b[32m Database: connection established successfully '${config.mariadb.dialec}', database '${config.mariadb.database}'`);
+  } catch (e) {
+    console.error(`\x1b[31m Database: unable to connect to '${config.mariadb.dialec}', database '${config.mariadb.database}', with error: ${e}`);
+  }
+};
+
+(async () => {
+  await databaseConnection();
+})();
 
 exports.closeServer = () => {
   server.close();
