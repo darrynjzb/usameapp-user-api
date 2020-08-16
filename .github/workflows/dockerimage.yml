@@ -1,0 +1,20 @@
+name: Docker Image CI
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set Image Tag
+        run: echo ::set-env name=TAG_IMAGE::$(date  +%F-%H%M%S)
+      - uses: actions/checkout@v2
+      - name: Docker login
+        run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build the Docker image
+        run: docker build -t ${{ secrets.DOCKER_USER }}/aristoteles-users-api:${{ env.TAG_IMAGE }} .
+      - name: Pushing the Docker image
+        run: docker push ${{ secrets.DOCKER_USER }}/aristoteles-users-api:${{ env.TAG_IMAGE }}

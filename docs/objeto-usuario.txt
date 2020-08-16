@@ -1,0 +1,73 @@
+Objeto Usuario
+
+{
+	email,    		(String)
+	password, 		(String)
+	name,     		(String)
+	last_name,		(String)
+	enabled,		(Boolean)
+	is_commerce,    (Boolean)
+	created_at,		(Date)
+	updated_at		(Date)
+}
+
+
+Objeto Comercio
+
+{
+	display_name,    	(String)
+	address,	 		(String)
+	web_page,     		(String)
+	max_person_on_site, (Integer)
+	created_at,			(Date)
+	updated_at			(Date)
+	user_id, 			(FK USER)
+}
+
+
+
+Usuario <-- Comercio
+		1:inf
+
+		Body Request Create User (Persona)
+
+{
+	payload:
+		{
+			user:
+				{
+					email,    		(String)
+					password, 		(String)
+					name,     		(String)
+					last_name,		(String)
+				},
+			commerces:
+			 	[]
+		}
+}
+
+
+
+Body Request Create User (Comercio)
+{
+	payload:
+		{
+			user:
+				{
+					email,    		(String)
+					password, 		(String)
+					name,     		(String)
+					last_name,		(String)
+				},
+			commerces:
+			 	[{
+					display_name,    	(String)
+					address,	 		(String)
+					web_page,     		(String)
+					max_person_on_site, (Integer)
+					created_at,			(Date)
+					updated_at			(Date)
+					user_id, 			(FK USER)
+				}]
+		}
+}

@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const cors = require('cors');
-const context = require('./app/config/').context;
+const { context } = require('./app/config/');
 const path = require('path');
 const fs = require('fs');
 const swaggerJSDoc = require('swagger-jsdoc');
@@ -26,8 +26,6 @@ const mapErrorResponse = (err) => {
   if (err.metadata) {
     object.metadata = err.metadata;
   }
-  logger.error('', `${err.message}`, JSON.stringify(logger.obfuscate(object)));
-  return object;
 };
 
 // health check MS
@@ -69,8 +67,6 @@ app.use((err, req, res, next) => { // eslint-disable-line
 });
 
 // Route not found (404)
-app.use((req, res) => {
-  return res.status(404).send({ code: 'NOT_FOUND_ROUTE', message: `Route ${req.url} Not found.` });
-});
+app.use((req, res) => res.status(404).send({ code: 'NOT_FOUND_ROUTE', message: `Route ${req.url} Not found.` }));
 
 module.exports = app;

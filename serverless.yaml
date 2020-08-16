@@ -1,0 +1,16 @@
+service: usame-user-api
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: eu-central-1
+  environment:
+    NODE_ENV: "local"
+    MONGO_DB_URI: "mongodb+srv://aristoteles:aqwepdo!·dso@development.ynjb8.mongodb.net/aristoteles?retryWrites=true&w=majority"
+    JWT_URL: "https://l9b3ciipaj.execute-api.eu-central-1.amazonaws.com/dev/api/jwt"
+functions:
+  server:
+    handler: index.server
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'

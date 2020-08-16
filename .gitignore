@@ -60,4 +60,8 @@ coverge/
 
 lcov
 
+# aditionals
 .env
+package-lock.json
+.nyc_output
+serverless
