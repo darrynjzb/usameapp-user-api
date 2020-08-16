@@ -5,6 +5,7 @@ const http = require('http');
 const displayRoutes = require('express-routemap');
 const { context, config } = require('../app/config/index');
 const Database = require('../app/db/sequelize');
+const serverless = require('serverless-http');
 
 /**
  * Normalize a port into a number, string, or false.
@@ -20,7 +21,7 @@ const normalizePort = (val) => {
     return port;
   }
   return false;
-}
+};
 
 /**
  * Get port from environment and store in Express.
@@ -88,18 +89,27 @@ server.on('listening', onListening);
  * Database connection
  */
 
-const databaseConnection = async () => {
+const database = async () => {
   try {
-    const database = new Database(config.mariadb);
-    await database.initConnection();
+    const cn = new Database(config.mariadb);
+    await cn.initConnection();
     console.log(`\x1b[32m Database: connection established successfully '${config.mariadb.dialec}', database '${config.mariadb.database}'`);
   } catch (e) {
     console.error(`\x1b[31m Database: unable to connect to '${config.mariadb.dialec}', database '${config.mariadb.database}', with error: ${e}`);
   }
 };
 
-(async () => {
-  await databaseConnection();
+/**
+ * Serverless
+ */
+const handler = serverless(app);
+
+/**
+ * innit
+ */
+(async (event, cntx) => {
+  await database();
+  await handler(event, cntx);
 })();
 
 exports.closeServer = () => {
