@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 const { Sequelize } = require('sequelize');
+const fs = require('fs');
 
 class Database {
   constructor(config) {
@@ -11,7 +12,9 @@ class Database {
         host: config.host,
         port: config.port,
         dialect: config.dialec,
-        dialectOptions: config.dialectOptions,
+        dialectOptions: {
+          timezone: config.timezone,
+        },
         logging: config.logging === 'enabled' ? console.log : false
       }
     );

@@ -4,6 +4,7 @@
     "import"
   ],
   "rules": {
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "class-methods-use-this": "off"
   }
 }

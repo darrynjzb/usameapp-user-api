@@ -1,6 +1,9 @@
-const sequelize = require('sequelize');
 const BaseModel = require('./base-model');
 const models = require('./index');
+
+const sequelize = require('sequelize');
+
+const SequelizeObj = new sequelize.Sequelize('mysql::memory:');
 
 class User extends BaseModel {
   static getModelName() {
@@ -35,18 +38,19 @@ class User extends BaseModel {
       enable: {
         type: sequelize.DataTypes.BOOLEAN,
         allowNull: false,
+        defaultValue: true
       },
       is_commerce: {
         type: sequelize.DataTypes.BOOLEAN,
         allowNull: false,
+        defaultValue: false
       },
     };
     return fields;
   }
-
-  static relationship() {
-    super.hasMany(models.Commerce, { foreignKey: 'user_id' });
-  }
 }
+
+User.init(User.getFields(), { sequelize: SequelizeObj });
+User.hasMany(models.Commerce, { foreignKey: 'user_id' });
 
 module.exports = User;

@@ -1,6 +1,9 @@
-const sequelize = require('sequelize');
 const BaseModel = require('./base-model');
 const models = require('./index');
+
+const sequelize = require('sequelize');
+
+const SequelizeObj = new sequelize.Sequelize('mysql::memory:');
 
 class Commerce extends BaseModel {
   static getModelName() {
@@ -32,15 +35,15 @@ class Commerce extends BaseModel {
         allowNull: false,
       },
       user_id: {
-        type: sequelize.DataTypes.INTEGER.UNSIGNED
+        type: sequelize.DataTypes.INTEGER.UNSIGNED,
+        allowNull: false,
       },
     };
     return fields;
   }
-
-  static relationship() {
-    super.belongsTo(models.User, { foreignKey: 'user_id' });
-  }
 }
+
+Commerce.init(Commerce.getFields(), { sequelize: SequelizeObj });
+Commerce.belongsTo(models.User, { foreignKey: 'user_id' });
 
 module.exports = Commerce;

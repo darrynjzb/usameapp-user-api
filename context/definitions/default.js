@@ -1,10 +1,10 @@
-const clientMiddleware = require('./default.clientMiddleware');
+const userMiddleware = require('./default.userMiddleware');
 
 module.exports = {
-  name: process.env.NODE_CONTEXT_NAME || 'usameapp-user-api',
-  port: process.env.NODE_CONTEXT_PORT || 3000,
+  name: process.env.CONTEXT_NAME || 'usameapp-user-api',
+  port: process.env.CONTEXT_PORT || 3000,
   middlewares: {
-    client: clientMiddleware
+    client: userMiddleware
   },
-  version: process.env.NODE_CONTEXT_VERSION || 'v1'
+  version: process.env.CONTEXT_VERSION || 'v1'
 };
