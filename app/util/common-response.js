@@ -1,8 +1,8 @@
-function setResponseWithError(res, status, message, code = 'error') {
+function setResponseWithError(res, status, message, code = 'ERROR') {
   return res.status(status).send({ code, message });
 }
 
-function setResponseWithOk(res, status, message, code = 'ok') {
+function setResponseWithOk(res, status, message, code = 'OK') {
   return res.status(status).send({ code, message });
 }
 

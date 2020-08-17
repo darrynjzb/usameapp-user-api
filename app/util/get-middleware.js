@@ -1,9 +1,12 @@
+/* eslint-disable no-param-reassign */
 const camelCase = require('lodash/camelCase');
 
-function getMiddlewares(middlewareNames) {
+function getMiddlewares(mdwStr) {
+  const middlewareNames = mdwStr.trim().split(',');
   const arrayOfMiddleware = [];
   try {
     middlewareNames.forEach((name) => {
+      name = name.trim();
       const middleware = require(`./../middlewares/${name}`)[camelCase(name)]; // eslint-disable-line
       arrayOfMiddleware.push(middleware);
     });

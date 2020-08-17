@@ -61,7 +61,7 @@ const router = Router();
  *        schema:
  *          $ref: "#/parameters/error"
  */
-// router.post('/client/', getMiddlewares(context.middlewares.client.create));
+router.post('/user', getMiddlewares(context.middlewares.client.create));
 
 /**
  * @swagger
