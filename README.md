@@ -2,8 +2,6 @@
 
 Service description
 
-```
-
 ## Installation of dependencies
 
 ```sh
