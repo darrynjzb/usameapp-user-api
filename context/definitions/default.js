@@ -5,7 +5,7 @@ module.exports = {
   config: process.env.NODE_ENV || 'local',
   port: process.env.CONTEXT_PORT || 3000,
   middlewares: {
-    client: userMiddleware
+    user: userMiddleware
   },
   version: process.env.CONTEXT_VERSION || 'v1'
 };

@@ -3,17 +3,21 @@ const Joi = require('joi');
 /**
  * @swagger
  * definitions:
- *   Client:
+ *   User:
  *     type: "object"
  *     properties:
  *       id:
+ *         type: "integer"
+ *       email:
  *         type: "string"
  *       name:
  *         type: "string"
- *       mail:
+ *       last_name:
  *         type: "string"
- *       createdAt:
- *         type: "string"
+ *       enabled:
+ *         type: "boolean"
+ *       is_commerce:
+ *         type: "boolean"
 */
 module.exports.user = {
   payload: Joi.object().keys({
