@@ -1,10 +1,9 @@
-const BaseController = require('./base-controller');
-const UserService = require('../services/user-service');
+const service = require('../services/user-service');
 
-class UserController extends BaseController {
+class UserController {
   async create(payload) {
     try {
-      const user = await UserService.create(payload.user);
+      const user = await service.create(payload.user);
       return user;
     } catch (e) {
       throw e;

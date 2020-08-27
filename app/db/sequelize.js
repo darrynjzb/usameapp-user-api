@@ -6,13 +6,13 @@ const models = require('./models/index');
 class Database {
   constructor(config) {
     this.instance = new Sequelize(
-      config.table,
+      config.database,
       config.username,
       config.password,
       {
         host: config.host,
         port: config.port,
-        dialect: config.dialec,
+        dialect: config.dialect,
         dialectOptions: {
           timezone: config.timezone,
         },
