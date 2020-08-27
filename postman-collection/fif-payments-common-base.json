@@ -1,196 +1,50 @@
 {
 	"info": {
-		"_postman_id": "a12167ac-60a1-41f7-a8ab-56c410c0cf12",
-		"name": "fif-payments-common-base",
+		"_postman_id": "320c3b5d-c6ea-4dfc-8c5e-f058a742a014",
+		"name": "UsameApp",
+		"description": "Documentation api user for UsameApp",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "create a client",
+			"name": "Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}/health",
+					"host": [
+						"{{local}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
 			"request": {
 				"method": "POST",
-				"header": [
-					{
-						"key": "x-flow-channel",
-						"value": "web",
-						"type": "text"
-					},
-					{
-						"key": "x-flow-country",
-						"value": "cl",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "x-flow-commerce",
-						"value": "banco",
-						"type": "text"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"id\":\"14216541\",\n\t\"name\":\"Andres\",\n\t\"mail\":\"aaa@qqq.com\"\n}"
+					"raw": "{\n    \"payload\": {\n        \"user\": {\n            \"email\": \"darrynjzb1@gmail.com\",\n            \"password\": \"sarasa3000\",\n            \"name\": \"Darryn Josué\",\n            \"last_name\": \"Briceño Crespo\"\n        },\n        \"commerces\": []\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
-					"raw": "{{host-local}}/v1/client/",
+					"raw": "{{local}}/v1/user",
 					"host": [
-						"{{host-local}}"
+						"{{local}}"
 					],
 					"path": [
-						"api",
-						"onboarding",
 						"v1",
-						"client",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get a client",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "x-flow-channel",
-						"value": "web",
-						"type": "text"
-					},
-					{
-						"key": "x-flow-country",
-						"value": "cl",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "x-flow-commerce",
-						"value": "banco",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"id\":\"14216541\",\n\t\"name\":\"Andres\",\n\t\"mail\":\"aaa@qqq.com\"\n}"
-				},
-				"url": {
-					"raw": "{{host-local}}/v1/client/14216541",
-					"host": [
-						"{{host-local}}"
-					],
-					"path": [
-						"api",
-						"onboarding",
-						"v1",
-						"client",
-						"14216541"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "delete a client",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "x-flow-channel",
-						"value": "web",
-						"type": "text"
-					},
-					{
-						"key": "x-flow-country",
-						"value": "cl",
-						"type": "text"
-					},
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "x-flow-commerce",
-						"value": "banco",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"id\":\"14216541\",\n\t\"name\":\"Andres\",\n\t\"mail\":\"aaa@qqq.com\"\n}"
-				},
-				"url": {
-					"raw": "{{host-local}}/v1/client/14216541",
-					"host": [
-						"{{host-local}}"
-					],
-					"path": [
-						"api",
-						"onboarding",
-						"v1",
-						"client",
-						"14216541"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "health",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "x-flow-channel",
-						"type": "text",
-						"value": "web"
-					},
-					{
-						"key": "x-flow-country",
-						"type": "text",
-						"value": "cl"
-					},
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					},
-					{
-						"key": "x-flow-commerce",
-						"type": "text",
-						"value": "banco"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"id\":\"14216541\",\n\t\"name\":\"Andres\",\n\t\"mail\":\"aaa@qqq.com\"\n}"
-				},
-				"url": {
-					"raw": "{{host-local}}/health/",
-					"host": [
-						"{{host-local}}"
-					],
-					"path": [
-						"health",
-						""
+						"user"
 					]
 				}
 			},
@@ -201,7 +55,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "e16dc058-a8c9-4c6b-aae6-08f65936c0d8",
+				"id": "bfa9ce8d-1cbf-4c10-86ae-c82ebe0bdebc",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -211,7 +65,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "34ba47cc-2a37-47f8-9b94-28c9db2c88a9",
+				"id": "a3e3eb80-8ad7-4283-a45c-5416f8fbbf5e",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -221,56 +75,10 @@
 	],
 	"variable": [
 		{
-			"id": "5f0eb276-aa3c-4592-acd5-df877117a373",
-			"key": "host-local",
-			"value": "http://localhost:3053",
-			"type": "string"
-		},
-		{
-			"id": "9f40b668-b72c-403d-b837-0d28019e035d",
-			"key": "host-test",
-			"value": "http://localhost:3053",
-			"type": "string"
-		},
-		{
-			"id": "563ffaf4-07a1-4da4-8b11-7ae9caee3a17",
-			"key": "host-qa",
-			"value": "http://localhost:3053",
-			"type": "string"
-		},
-		{
-			"id": "3b6f5608-fff6-4eb4-9810-014d73699438",
-			"key": "hots-prod",
-			"value": "http://localhost:3053",
-			"type": "string"
-		},
-		{
-			"id": "de3a9ff8-b53c-434c-b6bf-574dd8928f4f",
-			"key": "apiKet-local",
-			"value": "",
-			"type": "string",
-			"disabled": true
-		},
-		{
-			"id": "5c0e71ba-f906-4791-9276-d95f19e2a354",
-			"key": "apiKet-test",
-			"value": "",
-			"type": "string",
-			"disabled": true
-		},
-		{
-			"id": "56af90c3-6aa7-4470-b952-0bcf5bd2674b",
-			"key": "apiKet-qa",
-			"value": "",
-			"type": "string",
-			"disabled": true
-		},
-		{
-			"id": "b4bfa6d6-41d2-419f-860c-daf383f412be",
-			"key": "apiKet-prod",
-			"value": "",
-			"type": "string",
-			"disabled": true
+			"id": "2f4e43f4-fdeb-4e5d-a349-45fd5c72f52f",
+			"key": "local",
+			"value": "http://localhost:3000"
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
