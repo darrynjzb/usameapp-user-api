@@ -91,11 +91,13 @@ server.on('listening', onListening);
 
 const database = async () => {
   try {
-    const cn = new Database(config.mariadb);
-    await cn.initConnection();
-    console.log(`\x1b[32m Database: connection established successfully '${config.mariadb.dialec}', database '${config.mariadb.database}'`);
+    const conn = new Database(config.mariadb);
+    await conn.initConnection();
+    console.log(`\x1b[32m Database: connection established successfully '${config.mariadb.dialect}', database '${config.mariadb.database}'`);
+    await conn.initModels();
+    console.log('\x1b[32m Database: relationships established');
   } catch (e) {
-    console.error(`\x1b[31m Database: unable to connect to '${config.mariadb.dialec}', database '${config.mariadb.database}', with error: ${e}`);
+    console.error(`\x1b[31m Database: unable to connect to '${config.mariadb.dialect}', database '${config.mariadb.database}', with error: ${e}`);
   }
 };
 

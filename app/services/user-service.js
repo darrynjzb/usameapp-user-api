@@ -1,15 +1,14 @@
 const { User } = require('../db/models');
-const BaseService = require('./base-service');
 
-class UserService extends BaseService {
-  async create(payload) {
-    try {
-      const user = await super.baseCreate(payload);
-      return user;
-    } catch (e) {
-      throw e;
-    }
+const create = async (payload) => {
+  try {
+    const user = await User.create(payload);
+    return user;
+  } catch (e) {
+    throw e;
   }
-}
+};
 
-module.exports = new UserService(User);
+module.exports = {
+  create
+};

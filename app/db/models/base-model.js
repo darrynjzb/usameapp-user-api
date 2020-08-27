@@ -4,17 +4,18 @@ class BaseModel extends sequelize.Model {
   static getBaseFields() {
     return {
       id: {
-        type: sequelize.DataTypes.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        autoIncrement: true
+        type: sequelize.DataTypes.INTEGER,
       },
       created_at: {
-        type: 'TIMESTAMP',
+        type: sequelize.DataTypes.DATE,
         defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
         allowNull: false
       },
       updated_at: {
-        type: 'TIMESTAMP',
+        type: sequelize.DataTypes.DATE,
         defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
         allowNull: false
       },
