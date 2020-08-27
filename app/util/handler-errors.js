@@ -1,8 +1,10 @@
 const handlerError = (e) => {
-  const status = 500;
-  const code = 'INTERNAL_SERVER_ERROR';
-  let message = 'internal server error';
-  if (e.message) {
+  let status = 500;
+  let code = 'INTERNAL_SERVER_ERROR';
+  let message = e.message || 'internal server error not handled';
+  if (e.name === 'SequelizeUniqueConstraintError') {
+    status = 409;
+    code = 'DATABASE_CONSTRAIN_ERROR';
     message = e.message;
   }
   return {

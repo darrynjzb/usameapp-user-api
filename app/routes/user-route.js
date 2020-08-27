@@ -37,6 +37,10 @@ const router = Router();
  *        description: "Incorrect body"
  *        schema:
  *          $ref: "#/parameters/errorIncorrectBody"
+ *      409:
+ *        description: "Conflic error"
+ *        schema:
+ *          $ref: "#/parameters/errorConflicError"
  *      500:
  *        description: "Internal server error"
  *        schema:

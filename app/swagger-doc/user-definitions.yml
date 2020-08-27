@@ -29,6 +29,7 @@ parameters:
           commerces:
             description: "Commerce aditional info"
             type: "array"
+
   resPostUser:
     type: "object"
     properties:
@@ -37,27 +38,3 @@ parameters:
         description: "OK"
       message:
         $ref: "#/definitions/User"
-
-  errorIncorrectBody:
-    type: "object"
-    properties:
-      code:
-        description: "Code of error"
-        enum:
-        - CREATE_USER_ERROR_BODY
-        type: "string"
-      message:
-        description: "Description of error"
-        type: "string"
-
-  errorInternal:
-    type: "object"
-    properties:
-      code:
-        description: "Code of errors"
-        enum:
-        - INTERNAL_SERVER_ERROR
-        type: "string"
-      message:
-        description: "Description of error"
-        type: "string"
