@@ -2,8 +2,6 @@ const BaseModel = require('./base-model');
 
 const sequelize = require('sequelize');
 
-const SequelizeObj = new sequelize.Sequelize('mariadb::memory:');
-
 class User extends BaseModel {
   static getModelName() {
     return 'User';
@@ -51,10 +49,8 @@ class User extends BaseModel {
   }
 
   static associate(models) {
-    User.hasMany(models.Commerce, { foreignKey: 'user_id' });
+    this.hasMany(models.Commerce, { foreignKey: 'user_id' });
   }
 }
-
-User.init(User.getFields(), { sequelize: SequelizeObj, modelName: User.getTableName() });
 
 module.exports = User;

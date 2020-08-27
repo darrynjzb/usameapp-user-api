@@ -4,8 +4,6 @@ const { config } = require('../../config');
 
 const sequelize = require('sequelize');
 
-const SequelizeObj = new sequelize.Sequelize('mariadb::memory:');
-
 class Commerce extends BaseModel {
   static getModelName() {
     return 'Commerce';
@@ -53,10 +51,8 @@ class Commerce extends BaseModel {
   }
 
   static associate(models) {
-    Commerce.belongsTo(models.User, { foreignKey: 'user_id' });
+    this.belongsTo(models.User, { foreignKey: 'user_id' });
   }
 }
-
-Commerce.init(Commerce.getFields(), { sequelize: SequelizeObj, modelName: Commerce.getModelName() });
 
 module.exports = Commerce;

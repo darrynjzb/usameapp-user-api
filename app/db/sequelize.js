@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable array-callback-return */
 /* eslint-disable no-console */
 const { Sequelize } = require('sequelize');
@@ -29,9 +30,10 @@ class Database {
     await this.getConnection().authenticate();
   }
 
-  relationships() {
-    Object.keys(models).map((name) => {
-      models[name].associate(models);
+  async initModels() {
+    Object.keys(models).map(async (name) => {
+      await models[name].init(models[name].getFields(), { sequelize: this.instance, modelName: models[name].getTableName() });
+      await models[name].associate(models);
     });
   }
 }
