@@ -1,6 +1,7 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable no-console */
 const { Sequelize } = require('sequelize');
-const fs = require('fs');
+const models = require('./models/index');
 
 class Database {
   constructor(config) {
@@ -26,6 +27,12 @@ class Database {
 
   async initConnection() {
     await this.getConnection().authenticate();
+  }
+
+  relationships() {
+    Object.keys(models).map((name) => {
+      models[name].associate(models);
+    });
   }
 }
 

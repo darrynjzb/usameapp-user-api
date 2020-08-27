@@ -1,9 +1,8 @@
 const BaseModel = require('./base-model');
-const models = require('./index');
 
 const sequelize = require('sequelize');
 
-const SequelizeObj = new sequelize.Sequelize('mysql::memory:');
+const SequelizeObj = new sequelize.Sequelize('mariadb::memory:');
 
 class Commerce extends BaseModel {
   static getModelName() {
@@ -41,9 +40,12 @@ class Commerce extends BaseModel {
     };
     return fields;
   }
+
+  static associate(models) {
+    Commerce.belongsTo(models.User, { foreignKey: 'user_id' });
+  }
 }
 
-Commerce.init(Commerce.getFields(), { sequelize: SequelizeObj });
-Commerce.belongsTo(models.User, { foreignKey: 'user_id' });
+Commerce.init(Commerce.getFields(), { sequelize: SequelizeObj, modelName: 'Commerce' });
 
 module.exports = Commerce;
