@@ -32,7 +32,7 @@ class Database {
 
   async initModels() {
     Object.keys(models).map(async (name) => {
-      await models[name].init(models[name].getFields(), { sequelize: this.instance, modelName: models[name].getTableName() });
+      await models[name].init(models[name].getFields(), { sequelize: this.instance, modelName: models[name].getTableName(), timestamps: false });
       await models[name].associate(models);
     });
   }
