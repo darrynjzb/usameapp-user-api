@@ -5,7 +5,7 @@ module.exports = {
     username: process.env.MARIADB_USERNAME || 'root',
     password: process.env.MARIADB_PASSWORD || 'mariadb',
     database: process.env.MARIADB_DATABASE || 'usame',
-    dialec: process.env.MARIADB_DIALEC || 'mariadb',
+    dialect: process.env.MARIADB_DIALECT || 'mariadb',
     logging: process.env.MARIADB_LOGGING || 'enabled',
     dialectOptions: null,
     timezone: process.env.MARIADB_TIMEZONE || 'Etc/GMT-3'

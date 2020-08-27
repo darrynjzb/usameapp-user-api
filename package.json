@@ -11,7 +11,7 @@
     "unit-test-w": "./node_modules/mocha/bin/mocha  ./app/**/*.spec.js ./app/**/**/*.spec.js ./app/**/**/**/*.spec.js -t 10000 -w",
     "coverage": "nyc --reporter=text-summary  ./node_modules/mocha/bin/mocha ./app/**/*.spec.js ./app/**/**/*.spec.js ./app/**/**/**/*.spec.js -t 10000  ",
     "coverage-table": "nyc  ./node_modules/mocha/bin/mocha   ./app/**/*.spec.js ./app/**/**/*.spec.js ./app/**/**/**/*.spec.js -t 10000  ",
-    "coverage-check": "nyc  check-coverage --lines 80 --functions 80 --branches 80 --statements 80 ./node_modules/mocha/bin/mocha ./app/**/*.spec.js ./app/**/**/*.spec.js ./app/**/**/**/*.spec.js -t 10000 "
+    "coverage-check": "nyc  check-coverage --lines 80 --functions 80 --branches 80 --statements 80 ./node_modules/mocha/bin/mocha ./app/**/*.spec.js ./app/**/**/*.spec.js ./app/**/**/**/*.spec.js -t 10000"
   },
   "nyc": {
     "include": [
@@ -72,6 +72,7 @@
     "npm-check-updates": "2.11.3",
     "npm-run-all": "^4.0.2",
     "nyc": "^12.0.2",
+    "sequelize-cli": "^6.2.0",
     "sinon": "1.17.7",
     "stubby": "^4.0.0",
     "yargs": "^12.0.1"

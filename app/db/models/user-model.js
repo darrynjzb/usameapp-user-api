@@ -16,7 +16,7 @@ class User extends BaseModel {
   static getFields() {
     const baseFields = super.getBaseFields(sequelize);
     const fields = {
-      ...baseFields,
+      id: baseFields.id,
       email: {
         type: sequelize.DataTypes.STRING(100),
         allowNull: false,
@@ -24,7 +24,7 @@ class User extends BaseModel {
       },
       password: {
         type: sequelize.DataTypes.STRING(100),
-        allowNull: false
+        allowNull: false,
       },
       name: {
         type: sequelize.DataTypes.STRING(80),
@@ -44,6 +44,8 @@ class User extends BaseModel {
         allowNull: false,
         defaultValue: false
       },
+      created_at: baseFields.created_at,
+      updated_at: baseFields.updated_at
     };
     return fields;
   }

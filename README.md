@@ -42,6 +42,14 @@ To run the service locally, the following  command has to be run in mode **watch
 npm run  local-default-w
 ```
 
+## Run migrations sequelize
+
+To run migrations **app/db/migrations**
+
+```sh
+NODE_ENV=local npx sequelize-cli db:migrate
+```
+
 ## Swagger
 
 There is an endpoint to see the swagger file
