@@ -1,15 +1,13 @@
 info:
-  description:  to handle  the information client
+  description: Documentation api user for usame app
   version: "v1"
-  title: onboarding-cross-external-authentication
+  title: user-api
 schemes:
   - "http"
 tags:
-- name: "client"
-  description: "Client"
+- name: "user"
+  description: "User"
 swagger: "2.0"
 servers:
   - url: http://localhost:3000/v1
     description: Local
-  - url: https://payments-wallet-qa.fif.tech/api/onboarding/v1
-    description: QA

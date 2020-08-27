@@ -9,5 +9,8 @@ module.exports = {
     logging: process.env.MARIADB_LOGGING || 'enabled',
     dialectOptions: null,
     timezone: process.env.MARIADB_TIMEZONE || 'Etc/GMT-3'
+  },
+  authentication: {
+    saltRounds: Number(process.env.AUTHENTICATION_SALT_ROUNDS) || 10
   }
 };

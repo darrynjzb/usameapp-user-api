@@ -6,7 +6,7 @@ module.exports.createUserMiddleware = async (req, res) => {
   try {
     const controller = new UserController();
     const user = await controller.create(req.body.payload);
-    return setResponseWithOk(res, 200, user);
+    return setResponseWithOk(res, 201, user);
   } catch (e) {
     const { status, message, code } = handlerError(e);
     return setResponseWithError(res, status, message, code);

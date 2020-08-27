@@ -9,5 +9,8 @@ module.exports = {
     logging: process.env.MARIADB_LOGGING,
     dialectOptions: null,
     timezone: process.env.MARIADB_TIMEZONE,
+  },
+  authentication: {
+    saltRounds: Number(process.env.AUTHENTICATION_SALT_ROUNDS)
   }
 };
