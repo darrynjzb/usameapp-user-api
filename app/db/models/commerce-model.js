@@ -1,4 +1,6 @@
+/* eslint-disable max-len */
 const BaseModel = require('./base-model');
+const { config } = require('../../config');
 
 const sequelize = require('sequelize');
 
@@ -16,7 +18,7 @@ class Commerce extends BaseModel {
   static getFields() {
     const baseFields = super.getBaseFields(sequelize);
     const fields = {
-      ...baseFields,
+      id: baseFields.id,
       display_name: {
         type: sequelize.DataTypes.STRING(50),
         allowNull: false
@@ -34,9 +36,18 @@ class Commerce extends BaseModel {
         allowNull: false,
       },
       user_id: {
-        type: sequelize.DataTypes.INTEGER.UNSIGNED,
+        type: sequelize.DataTypes.INTEGER,
         allowNull: false,
+        references: {
+          model: {
+            tableName: 'users',
+            schema: config.mariadb.database
+          },
+          key: 'id'
+        }
       },
+      created_at: baseFields.created_at,
+      updated_at: baseFields.updated_at
     };
     return fields;
   }
@@ -46,6 +57,6 @@ class Commerce extends BaseModel {
   }
 }
 
-Commerce.init(Commerce.getFields(), { sequelize: SequelizeObj, modelName: 'Commerce' });
+Commerce.init(Commerce.getFields(), { sequelize: SequelizeObj, modelName: Commerce.getModelName() });
 
 module.exports = Commerce;

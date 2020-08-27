@@ -55,6 +55,6 @@ class User extends BaseModel {
   }
 }
 
-User.init(User.getFields(), { sequelize: SequelizeObj, modelName: 'User' });
+User.init(User.getFields(), { sequelize: SequelizeObj, modelName: User.getTableName() });
 
 module.exports = User;
