@@ -1,7 +1,7 @@
 module.exports = {
   mariadb: {
     host: process.env.MARIADB_HOST || 'localhost',
-    port: Number(process.env.MARIADB_PORT) || 3300,
+    port: Number(process.env.MARIADB_PORT) || 33060,
     username: process.env.MARIADB_USERNAME || 'root',
     password: process.env.MARIADB_PASSWORD || 'mariadb',
     database: process.env.MARIADB_DATABASE || 'usame',
