@@ -2,11 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const cors = require('cors');
-const { context } = require('./app/config/');
 const path = require('path');
 const fs = require('fs');
 const swaggerJSDoc = require('swagger-jsdoc');
 const YAML = require('yamljs');
+const { context } = require('./app/config');
 
 const app = express();
 

@@ -1,6 +1,6 @@
-const Router = require('express').Router;
-const context = require('../config').context;
-const getMiddlewares = require('../util/get-middleware').getMiddlewares;
+const { Router } = require('express');
+const { context } = require('../config');
+const { getMiddlewares } = require('../util/get-middleware');
 
 const router = Router();
 

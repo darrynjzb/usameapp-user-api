@@ -25,7 +25,8 @@ module.exports.user = {
       email: Joi.string().email().required(),
       password: Joi.string().required(),
       name: Joi.string().required(),
-      last_name: Joi.string().required()
+      last_name: Joi.string().required(),
+      is_commerce: Joi.boolean()
     }).required(),
     commerces: Joi.array()
   }).required()

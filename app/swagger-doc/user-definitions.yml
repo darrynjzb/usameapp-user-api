@@ -26,6 +26,10 @@ parameters:
                 type: "string"
                 description: "Last name"
                 required: true
+              is_commerce:
+                type: "boolean"
+                description: "Is Commerce"
+                required: true
           commerces:
             description: "Commerce aditional info"
             type: "array"
