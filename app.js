@@ -26,6 +26,7 @@ const mapErrorResponse = (err) => {
   if (err.metadata) {
     object.metadata = err.metadata;
   }
+  return err;
 };
 
 // health check MS

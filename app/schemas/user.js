@@ -19,15 +19,16 @@ const Joi = require('joi');
  *       is_commerce:
  *         type: "boolean"
 */
-module.exports.user = {
+module.exports.user = Joi.object({
   payload: Joi.object().keys({
     user: Joi.object().keys({
       email: Joi.string().email().required(),
       password: Joi.string().required(),
       name: Joi.string().required(),
       last_name: Joi.string().required(),
+      image_base_64: Joi.string().base64({ paddingRequired: true }).allow(''),
       is_commerce: Joi.boolean()
     }).required(),
     commerces: Joi.array()
   }).required()
-};
+});
