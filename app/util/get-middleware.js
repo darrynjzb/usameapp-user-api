@@ -2,8 +2,7 @@
 const camelCase = require('lodash/camelCase');
 
 function getMiddlewares(mdwStr) {
-  const middlewareNames = mdwStr.trim()
-    .split(',');
+  const middlewareNames = (mdwStr instanceof Array) ? mdwStr : mdwStr.trim().split(',');
   const arrayOfMiddleware = [];
   middlewareNames.forEach((name) => {
     name = name.trim();
